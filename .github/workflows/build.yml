@@ -11,9 +11,9 @@ jobs:
   build-windows:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: '3.10'
     - name: Install dependencies
@@ -24,7 +24,7 @@ jobs:
       run: |
         pyinstaller --name="DBCD Viewer" --windowed --add-data="README.md;." --noconsole --clean main.py
     - name: Upload Windows Build
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: DBCD-Viewer-Windows
         path: dist/DBCD Viewer/
@@ -32,9 +32,9 @@ jobs:
   build-macos:
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: '3.10'
     - name: Install dependencies
@@ -45,7 +45,7 @@ jobs:
       run: |
         pyinstaller --name="DBCD Viewer" --windowed --add-data="README.md:." --noconsole --clean main.py
     - name: Upload macOS Build
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: DBCD-Viewer-macOS
         path: dist/DBCD Viewer.app/ 
